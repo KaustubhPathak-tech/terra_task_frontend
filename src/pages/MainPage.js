@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./MainPage.css"
 //mui backdrop
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress, {
@@ -181,7 +181,7 @@ export default function mainPage() {
         </section>
       ) : null}
 
-      <div className="flex items-center justify-center flex-col mx-4 mt-10 border-1">
+      <div className="footer">
         &copy; {new Date().getFullYear()}&nbsp; Terra Motors India Pvt. Ltd.
       </div>
     </div>

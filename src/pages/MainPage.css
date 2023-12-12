@@ -1,0 +1,19 @@
+.footer{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-left: 90px;
+    position: absolute;
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .footer{
+        /* border: 1px solid black; */
+        width: 80vw;
+        padding-left: 0px;
+    }
+}
