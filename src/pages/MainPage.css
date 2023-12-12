@@ -10,7 +10,7 @@
     bottom: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
     .footer{
         /* border: 1px solid black; */
         width: 80vw;
