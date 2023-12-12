@@ -11,6 +11,14 @@
     bottom: 0;
 }
 
+@media (max-width: 768px) {
+    .footer{
+        position: relative;
+        width: 90vw;
+        padding-left: 0px;
+    }
+}
+
 @media (max-width: 450px) {
     .footer{
         position: relative;
