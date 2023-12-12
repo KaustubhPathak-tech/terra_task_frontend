@@ -1,12 +1,13 @@
 .footer{
     width: 90vw;
+    margin-top: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
     padding-left: 90px;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
