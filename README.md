@@ -1,7 +1,7 @@
 
 # Currency Converter - MERN Stack
 
-![image](https://github.com/KaustubhPathak-tech/terra_task_frontend/blob/main/src/Assets/tera_task_image.png)
+![image](https://github.com/KaustubhPathak-tech/terra_task_frontend/blob/main/src/Assets/terra_task_image.png)
 
 A simple currency converter built with the MERN (MongoDB, Express.js, React.js, Node.js) stack. It uses the Open Exchange Rates API and Xe Currency API to fetch and process currency conversion rates.
 
