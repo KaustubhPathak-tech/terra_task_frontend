@@ -17,7 +17,13 @@ Before running this project, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/KaustubhPathak-tech/Terra_Task.git
+   git clone https://github.com/KaustubhPathak-tech/terra_task_frontend
+
+   and 
+
+   git clone https://github.com/KaustubhPathak-tech/terra_task_backend.git
+
+
 
 2. Install dependencies for both the server and the client:
 
