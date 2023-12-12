@@ -9,6 +9,10 @@ import CircularProgress, {
   circularProgressClasses,
 } from "@mui/material/CircularProgress";
 
+//toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function mainPage() {
   const BASE_URL = "https://terracurrencyserver.vercel.app";
   //backdrop
@@ -24,13 +28,21 @@ export default function mainPage() {
   const [date, setDate] = useState(null);
   const [sourceCurrency, setSourceCurrency] = useState("");
   const [targetCurrency, setTargetCurrency] = useState("");
-  const [amountInSourceCurrency, setAmountInSourceCurrency] = useState(0);
-  const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(0);
+  const [amountInSourceCurrency, setAmountInSourceCurrency] = useState(1);
+  const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(1);
   const [CurrencyNames, setCurrencyNames] = useState([]); //Array of currency names
 
   const [loading, setLoading] = useState(true);
 
   const handleSubmit = async (e) => {
+    if(sourceCurrency === "" || targetCurrency === "" || amountInSourceCurrency === 0){
+      toast.error("Please fill all the fields");
+      setTimeout(() => {
+        toast.dismiss();
+        
+      }, 5000);
+      return;
+    }
     e.preventDefault();
     try {
       handleOpen();
@@ -96,13 +108,13 @@ export default function mainPage() {
                   setLoading(true);
                 }}
                 type="number"
-                min="0"
+                min="1"
                 id={amountInSourceCurrency}
                 name={amountInSourceCurrency}
                 value={amountInSourceCurrency}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 magic"
-                placeholder="Enter The Amount"
                 required
+                placeholder="Enter The Amount"
               />
             </div>
             <div className="mb-4">
@@ -184,6 +196,7 @@ export default function mainPage() {
       <div className="footer">
         &copy; {new Date().getFullYear()}&nbsp; Terra Motors India Pvt. Ltd.
       </div>
+      <ToastContainer />
     </div>
   );
 }
