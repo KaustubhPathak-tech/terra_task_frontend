@@ -12,7 +12,7 @@
 
 @media (max-width: 450px) {
     .footer{
-        /* border: 1px solid black; */
+        position: relative;
         width: 80vw;
         padding-left: 0px;
     }
