@@ -17,7 +17,7 @@ Before running this project, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/KaustubhPathak-tech/terra_task_frontend
+   git clone https://github.com/KaustubhPathak-tech/terra_task_frontend.git
 
    and 
 
