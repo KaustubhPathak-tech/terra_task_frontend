@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./MainPage.css"
+import "./MainPage.css";
 //mui backdrop
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress, {
@@ -12,6 +12,7 @@ import CircularProgress, {
 //toastify
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button } from "@mui/material";
 
 export default function mainPage() {
   const BASE_URL = "https://terracurrencyserver.vercel.app";
@@ -32,14 +33,25 @@ export default function mainPage() {
   const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(1);
   const [CurrencyNames, setCurrencyNames] = useState([]); //Array of currency names
 
+  //Revert the source and target currency
+  const handleRevert = () => {
+    const temp = sourceCurrency;
+    setSourceCurrency(targetCurrency);
+    setTargetCurrency(temp);
+    setLoading(true);
+  };
+
   const [loading, setLoading] = useState(true);
 
   const handleSubmit = async (e) => {
-    if(sourceCurrency === "" || targetCurrency === "" || amountInSourceCurrency === 0){
+    if (
+      sourceCurrency === "" ||
+      targetCurrency === "" ||
+      amountInSourceCurrency === 0
+    ) {
       toast.error("Please fill all the fields");
       setTimeout(() => {
         toast.dismiss();
-        
       }, 5000);
       return;
     }
@@ -67,9 +79,7 @@ export default function mainPage() {
   useEffect(() => {
     const getCurrencyNames = async () => {
       try {
-        const response = await axios.get(
-          `${BASE_URL}/getAllCurrencies`
-        );
+        const response = await axios.get(`${BASE_URL}/getAllCurrencies`);
         setCurrencyNames(response.data);
       } catch (error) {
         console.log(error);
@@ -144,7 +154,44 @@ export default function mainPage() {
                 ))}
               </select>
             </div>
-
+            <div className="revertBtn">
+              <Button onClick={handleRevert} data-toggle="tooltip" title="Interchange Currency">
+              <svg
+                width="24"
+                height="31"
+                viewBox="0 0 24 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke="#4657A1"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  d="M2.355 7.906h18.729"
+                ></path>
+                <path
+                  d="M15.682 14.089l6.605-6.551-6.605-6.117"
+                  stroke="#4657A1"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  stroke="#4657A1"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  d="M21.084 23.39H2.355"
+                ></path>
+                <path
+                  d="M7.947 16.901L1.34 23.452l6.606 6.117"
+                  stroke="#4657A1"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              </Button>
+            </div>
             <div className="mb-4">
               <label
                 htmlFor={targetCurrency}
