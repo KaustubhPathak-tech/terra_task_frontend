@@ -33,6 +33,9 @@
         width: 70vw;
         padding-left: 0px;
     }
+    .revertBtn{
+        margin-left: 39vw;
+    }
 }
 
 @media (max-width: 450px) {
@@ -40,5 +43,8 @@
         position: relative;
         width: 80vw;
         padding-left: 0px;
+    }
+    .revertBtn{
+        margin-left: 29vw;
     }
 }
